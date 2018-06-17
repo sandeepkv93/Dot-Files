@@ -7,13 +7,15 @@ alias ..='cd ..'
 alias cls='clear'
 alias clr='reset'
 alias x='exit'
-alias bashrc='gedit ~/.bashrc'
+alias bashrc='vim ~/.bashrc'
 alias suinstall='sudo apt-get install'
 alias server='python -m SimpleHTTPServer'
 alias o='gnome-open'
-alias update='sudo apt-get clean && sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y'
+alias update1='sudo apt-get clean && sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y'
+alias update='sudo apt clean && sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y'
 alias f~='find . -name "*~" -delete'
 alias short="PS1='\u:\W\$ '"
 
 function mkcd() { mkdir -p "$1" && cd "$1"; }
 export -f mkcd
+
