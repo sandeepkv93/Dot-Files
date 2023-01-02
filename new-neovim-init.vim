@@ -12,7 +12,6 @@ endif
 
 let g:vim_bootstrap_langs = "go,javascript,python,typescript"
 let g:vim_bootstrap_editor = "nvim"				" nvim or vim
-let g:vim_bootstrap_theme = "onedark"
 let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
@@ -49,7 +48,6 @@ Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'joshdick/onedark.vim'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -167,7 +165,6 @@ set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching brackets.
 
 let no_buffers_menu=1
-colorscheme onedark
 
 " This directory should exist.
 " Always enable preview window on the right with 60% width
@@ -648,3 +645,6 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+" github copilot
+nnoremap <LEADER>cp :Copilot panel<CR>
