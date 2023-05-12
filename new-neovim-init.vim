@@ -95,6 +95,9 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
+" bazel vim
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 
 "*****************************************************************************
 "*****************************************************************************
