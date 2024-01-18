@@ -1,0 +1,119 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.suggestSelection": "first",
+  "editor.rulers": [160],
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Cascadia Code PL', monospace, 'Courier New'",
+  "editor.fontSize": 13,
+  "editor.fontWeight": "normal",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.cursorBlinking": "expand",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.jsxSingleQuote": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "editor.largeFileOptimizations": false,
+  "terminal.integrated.fontFamily": "'Cascadia Code PL', 'MesloLGS NF', monospace",
+  "terminal.integrated.fontSize": 13,
+  "files.autoSave": "afterDelay",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook",
+    "*.db": "sqlite-viewer.option"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.tabSize": 4,
+  "editor.wordWrap": "on",
+  "editor.inlineSuggest.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "material-icon-theme",
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.banner": "never",
+  "editor.guides.bracketPairs": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.colorTheme": "Copilot Theme",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.explorerKind": "external",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "task.problemMatchers.neverPrompt": {
+    "shell": true
+  },
+  "[yaml]": {
+    "editor.formatOnSave": false
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "[bazel]": {
+    "editor.defaultFormatter": "DevonDCarew.bazel-code"
+  },
+  "bazel.buildifierExecutable": "/Users/svishnu/go/bin/buildifier",
+  "bazel.buildifierFixOnFormat": true,
+  "bazel.executable": "/opt/homebrew/bin/bazel",
+  "editor.codeActionsOnSave": {},
+  "bazel.enableCodeLens": true,
+  "go.toolsManagement.autoUpdate": true,
+  "go.delveConfig": {},
+  "githubPullRequests.pullBranch": "never",
+  "workbench.editor.empty.hint": "hidden",
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[sql]": {
+    "editor.defaultFormatter": "mtxr.sqltools"
+  },
+  "[go][python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  }
+}
