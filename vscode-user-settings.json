@@ -24,7 +24,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "editor.codeActionsOnSave": {},
   "editor.inlineSuggest.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
@@ -65,14 +64,8 @@
   "[yaml]": {
     "editor.formatOnSave": false
   },
-  "[bazel]": {
-    "editor.defaultFormatter": "DevonDCarew.bazel-code"
-  },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[sql]": {
-    "editor.defaultFormatter": "mtxr.sqltools"
   },
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -85,6 +78,16 @@
       "source.organizeImports": "explicit"
     }
   },
+
+  // JavaScript and JSX specific settings
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "files.associations": { "*.js": "javascriptreact" },
+  "javascript.suggest.autoImports": true,
+  "javascript.validate.enable": false,
+  "editor.foldingStrategy": "indentation",
 
   // Terminal Settings
   "terminal.integrated.fontFamily": "'Cascadia Code PL', 'MesloLGS NF', monospace",
@@ -126,5 +129,6 @@
   "bazel.enableCodeLens": true,
   "go.toolsManagement.autoUpdate": true,
   "go.delveConfig": {},
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "redhat.telemetry.enabled": true
 }
