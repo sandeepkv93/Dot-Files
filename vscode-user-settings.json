@@ -2,7 +2,7 @@
   // Editor Appearance and Behavior
   "workbench.startupEditor": "newUntitledFile",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Copilot Theme",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
