@@ -25,6 +25,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
 
   // Files and File Types
@@ -81,7 +82,7 @@
 
   // JavaScript and JSX specific settings
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["javascript", "javascriptreact"],
   "files.associations": { "*.js": "javascriptreact" },
@@ -109,6 +110,7 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
+  "emmet.triggerExpansionOnTab": true,
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
