@@ -53,5 +53,6 @@ code --list-extensions
 1. stkb.rewrap
 1. styled-components.vscode-styled-components
 1. unifiedjs.vscode-mdx
+1. vincaslt.highlight-matching-tag
 1. zhuangtongfa.material-theme
 1. zxh404.vscode-proto3
