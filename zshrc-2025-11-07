@@ -1,0 +1,313 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -Fhg'
+alias ..='cd ..'
+alias cls='clear'
+alias clr='reset'
+alias x='exit'
+alias v='nvim'
+alias zshrc='vim ~/.zshrc'
+alias mkcd='function _mkcd(){ mkdir -p "$1" && cd "$1"; };_mkcd'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source ~/.ghcoilotalias
+# Go environment setup
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Tmux aliases (improved)
+alias ta='tmux attach'
+alias tal='tmux attach-session -t $(tmux list-sessions -F "#{session_name}" | fzf)'  # Interactive attach with fzf
+alias tas='function _tas(){ if [ -z "$1" ]; then echo "Usage: tas <session_name>"; else tmux attach -t "$1"; fi; };_tas'
+alias tls='tmux list-sessions'
+alias tlsf='tmux list-sessions -F "#{session_name}: #{session_windows} windows (created #{session_created_string})"'  # Formatted list
+alias tns='function _tns(){ if [ -z "$1" ]; then tmux new-session -s "session_$(date +%Y%m%d_%H%M%S)"; else tmux new-session -s "$1"; fi; };_tns'
+alias tnsd='function _tnsd(){ if [ -z "$1" ]; then tmux new-session -d -s "session_$(date +%Y%m%d_%H%M%S)"; else tmux new-session -d -s "$1"; fi; };_tnsd'  # New detached session
+alias tds='function _tds(){ if [ -z "$1" ]; then echo "Usage: tds <session_name>"; else tmux kill-session -t "$1"; fi; };_tds'
+alias tda='tmux kill-server'  # Kill all sessions
+alias trs='function _trs(){ if [ -z "$1" ] || [ -z "$2" ]; then echo "Usage: trs <old_name> <new_name>"; else tmux rename-session -t "$1" "$2"; fi; };_trs'  # Rename session
+alias tss='tmux switch-session -t'  # Switch session
+alias tsl='tmux switch-session -l'  # Switch to last session
+
+# Tmux shortcuts
+alias tk='tmux kill-session'
+alias tka='tmux kill-server'
+alias tr='tmux source-file ~/.tmux.conf'  # Reload tmux config
+
+# Enhanced file operations with tools we just installed
+alias cat='bat'  # Use bat instead of cat for syntax highlighting
+alias catn='command cat'  # Keep original cat available as catn
+
+# Git aliases (enhanced)
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gp='git push'
+alias gpl='git pull'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+alias gba='git branch -a'
+alias glog='git log --oneline --graph --decorate'
+alias gstash='git stash'
+alias gpop='git stash pop'
+alias lg='lazygit'
+
+# Kubernetes aliases
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get services'
+alias kgd='kubectl get deployments'
+alias kgn='kubectl get namespaces'
+alias kd='kubectl describe'
+alias kdel='kubectl delete'
+alias kaf='kubectl apply -f'
+alias kpf='kubectl port-forward'
+alias kexec='kubectl exec -it'
+alias klogs='kubectl logs -f'
+alias kns='kubectl config set-context --current --namespace'
+alias kctx='kubectl config use-context'
+alias kcc='kubectl config current-context'
+
+# Docker aliases
+alias d='docker'
+alias dc='docker-compose'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias di='docker images'
+alias drm='docker rm'
+alias drmi='docker rmi'
+alias dstop='docker stop'
+alias dstart='docker start'
+alias dexec='docker exec -it'
+alias dlogs='docker logs -f'
+alias dprune='docker system prune -a'
+
+# Directory navigation
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# File listing enhancements
+alias lsa='ls -la'
+alias lsl='ls -l'
+alias lsh='ls -lah'
+alias lst='ls -lat'  # Sort by time
+
+# System monitoring
+alias top='htop'
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias ports='netstat -tuln'
+
+# Network utilities
+alias ping='ping -c 5'
+alias wget='wget -c'
+alias myip='curl -s ipinfo.io/ip'
+alias localip='ifconfig | grep "inet " | grep -v 127.0.0.1'
+
+# Development utilities
+alias serve='python3 -m http.server'  # Simple HTTP server
+alias jsonpp='python3 -m json.tool'  # Pretty print JSON
+alias urlencode='python3 -c "import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]))"'
+alias urldecode='python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.argv[1]))"'
+
+# Search and find
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias h='history'
+alias hgrep='history | grep'
+
+# Process management
+alias psg='ps aux | grep'
+alias killall='killall -v'
+
+# Archive operations
+alias tar='tar -v'
+alias untar='tar -xvf'
+alias targz='tar -czvf'
+alias untargz='tar -xzvf'
+
+# Miscellaneous
+alias reload='source ~/.zshrc'
+alias path='echo $PATH | tr ":" "\n"'
+alias now='date +"%Y-%m-%d %H:%M:%S"'
+alias week='date +%V'
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias weather='curl -s wttr.in'
+
+genmsg() {
+    { echo "Write a concise, professional commit message (1 line or maximum 2 lines) for these changes. No prefixes like feat/fix/etc. No usernames. Output only the commit message text."; echo; git diff --cached --name-only | sed 's/^/- /'; echo; git diff --cached; } | gemini | tee >(pbcopy)
+}
+
+# Created by `pipx` on 2025-07-04 15:06:32
+export PATH="$PATH:/Users/sandeepvishnu/.local/bin"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Java compile and run function
+jrun() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: jrun <JavaFile.java>"
+        return 1
+    fi
+
+    if [[ ! -f "$1" ]]; then
+        echo "Error: File '$1' not found"
+        return 1
+    fi
+
+    if [[ ! "$1" =~ \.java$ ]]; then
+        echo "Error: File must have .java extension"
+        return 1
+    fi
+
+    local classname="${1%.java}"
+
+    echo "Compiling $1..."
+    if javac "$1"; then
+        echo "Running $classname..."
+        java "$classname"
+        local exit_code=$?
+
+        # Optional: Clean up .class files
+        rm -f "${classname}.class" 2>/dev/null
+        setopt NULL_GLOB 2>/dev/null
+        rm -f "${classname}\$"*.class 2>/dev/null
+        unsetopt NULL_GLOB 2>/dev/null
+
+        return $exit_code
+    else
+        echo "Compilation failed"
+        return 1
+    fi
+}
+
+# Completion for jrun function - only complete .java files
+_jrun() {
+    _files -g "*.java"
+}
+
+compdef _jrun jrun
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+# export CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000
+# export SONAR_API_KEY=your-api-key-here
